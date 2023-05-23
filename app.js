@@ -68,11 +68,12 @@ const winConditions = [
 
 
 io.on('connection', (socket) => {
-  console.log(`Socket ${socket.id} connected avec l'ip ${socket.handshake.address}`);
+const ip = socket.request.connection.remoteAddress || socket.handshake.address;
+  console.log(`Socket ${socket.id} connected avec l'ip ${ip}`);
     
     socket.on('playerName', ({ playerName }) => {
         console.log('playerName', playerName);
-        const player = {playerName, socketId: socket.id, ip: socket.handshake.address.split(':').pop()};
+        const player = {playerName, socketId: socket.id, ip};
         players.push(player);
         io.emit('listPlayer', { players });
     });
