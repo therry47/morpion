@@ -26,7 +26,7 @@ function sendMessage() {
 socket.on('message', ({message, playerName}) => {
   const messages = document.getElementById('messages');
   const messageElement = document.createElement('li');
-  messageElement.innerText = `${playerName}: ${message}`;
+  messageElement.innerText = `${playerName} : ${message}`;
   messages.appendChild(messageElement);
 });
 
