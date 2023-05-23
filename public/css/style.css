@@ -1,0 +1,279 @@
+/* styles for the body element */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* styles for the header element */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  header a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* styles for the form element */
+  form {
+    margin: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input,
+  select,
+  textarea {
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 8px;
+    width: 100%;
+  }
+  
+  button[type="submit"] {
+    background-color: #333;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #666;
+  }
+
+  #board {
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  
+  #board > div {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .cell {
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    font-size: 80px;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s;
+  }
+  
+  .cell:hover {
+    background-color: lightgray;
+  }
+  
+  .cell.cell-X {
+    color: red;
+  }
+  
+  .cell.cell-O {
+    color: blue;
+  }
+  /* Styliser la cellule active lorsque la partie est terminée */
+  .cell.disabled {
+    cursor: default;
+  }
+  
+  /* Styliser le bouton de réinitialisation */
+  #reset {
+    background-color: #2196f3;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: block;
+    font-size: 18px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Styliser le bouton de réinitialisation au survol */
+  #reset:hover {
+    background-color: #0c7cd5;
+  }
+  
+  /* Styliser l'état du jeu */
+  .status {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  p.declared,
+  p.declared-error {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+  }
+
+  /* styles for the paragraph with class "declared" */
+  p.declared {
+    background-color: #ffc107;
+    color: #333;
+  }
+
+  /* styles for the paragraph with class "declared-error" */
+  p.declared-error {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  /* styles for the footer element */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* media query for phones */
+  @media screen and (max-width: 480px) {
+    /* styles for the header element */
+    header {
+      padding: 10px;
+    }
+  
+    header h1 {
+      font-size: 24px;
+    }
+  
+    /* styles for the form element */
+    form {
+      margin: 10px;
+    }
+  
+    input,
+    select,
+    textarea {
+      font-size: 14px;
+      padding: 5px;
+    }
+  
+    button[type="submit"] {
+      padding: 5px 10px;
+    }
+  }
+  
+  /* animation styles */
+  @keyframes slidein {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* styles for the body */
+  body {
+
+    animation: slidein 0.5s ease;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #fff;
+    }
+  
+    header {
+      background-color: #000;
+    }
+  
+    header a {
+      color: #fff;
+    }
+  
+    form {
+      background-color: #000;
+    }
+  
+    input,
+    select,
+    textarea {
+      background-color: #333;
+      border-color: #fff;
+      color: #fff;
+    }
+  
+    button[type="submit"] {
+      background-color: #fff;
+      color: #000;
+    }
+  
+    #board {
+      background-color: #000;
+    }
+  
+    #board > div {
+      background-color: #333;
+      border-color: #fff;
+      color: #fff;
+    }
+  
+    .cell:hover {
+      background-color: #333;
+    }
+  
+    #reset {
+      background-color: #fff;
+      color: #000;
+    }
+  
+    .status {
+      color: #fff;
+    }
+  
+    footer {
+      background-color: #000;
+    }
+  }
+  
