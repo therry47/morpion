@@ -68,7 +68,7 @@ const winConditions = [
 
 
 io.on('connection', (socket) => {
-const ip = socket.request.connection.remoteAddress || socket.handshake.address;
+const ip = socket.handshake.headers['x-forwarded-for'] || socket.handshake.headers['x-real-ip'] || socket.address.split(':').pop();
   console.log(`Socket ${socket.id} connected avec l'ip ${ip}`);
     
     socket.on('playerName', ({ playerName }) => {
