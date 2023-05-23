@@ -1,0 +1,33 @@
+<%- include('include/header'); %>
+    <div class="players">
+      <h2>Players</h2>
+      <div id="list-players">
+      <% for (let i = 0; i < players.length; i++) { %>
+          <li class="socket-<%-players[i].socketId%>"><%= players[i].playerName %> (<%= players[i].ip %>)</li>
+      <% } %>
+      </div>
+    </div>
+    <div class="board">
+      <% for (let i = 0; i < 9; i++) { %>
+        
+        <div class="cell<% if (board[i] !== null && board[i] !== '') { %> cell-<%= board[i] %><% } %>" id="cell-<%= i %>">
+          <%= board[i] %>
+        </div>
+      <% } %>
+    </div>
+    <button id="reset">Reset</button>
+    <div class="status" id="status">
+      <%= status %>
+    </div>
+    <div class="chat">
+      <div class="messages" id="messages">
+        <% for (let i = 0; i < messages.length; i++) { %>
+          <li><%= messages[i].playerName%> : <%=messages[i].message%></li>
+        <% } %>
+      </div>
+      <form id="chat-form">
+        <input type="text" id="message" placeholder="Type your message here">
+        <input type="submit" value="Send">
+      </form>
+    </div>
+<%- include('include/footer', {js: '/client.js'}); %>
